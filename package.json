@@ -1,22 +1,24 @@
 {
-  "name": "generator-angular",
+  "name": "generator-volusion-angular",
   "version": "0.7.1",
-  "description": "Yeoman generator for AngularJS",
+  "description": "Yeoman generator for Volusion-AngularJS",
   "keywords": [
     "yeoman-generator",
     "scaffold",
     "framework",
     "component",
     "front-end",
-    "app"
+    "app",
+    "volusion",
+    "angular"
   ],
-  "homepage": "https://github.com/yeoman/generator-angular",
-  "bugs": "https://github.com/yeoman/generator-angular/issues",
+  "homepage": "https://github.com/jedmao/generator-volusion-angular",
+  "bugs": "https://github.com/jedmao/generator-volusion-angular/issues",
   "author": "Chrome Developer Relations",
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yeoman/generator-angular.git"
+    "url": "git://github.com/jedmao/generator-volusion-angular.git"
   },
   "scripts": {
     "test": "mocha"

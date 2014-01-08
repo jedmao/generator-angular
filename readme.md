@@ -1,13 +1,13 @@
-# AngularJS generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-angular.png?branch=master)](http://travis-ci.org/yeoman/generator-angular) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# Volusion-AngularJS generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-angular.png?branch=master)](http://travis-ci.org/yeoman/generator-angular) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-> Yeoman generator for AngularJS - lets you quickly set up a project with sensible defaults and best practises.
+> Yeoman generator for Volusion-AngularJS - lets you quickly set up a project with sensible defaults and best practises.
 
 
 ## Usage
 
-Install `generator-angular`:
+Install `generator-volusion-angular`:
 ```
-npm install -g generator-angular
+npm install -g generator-volusion-angular
 ```
 
 Make a new directory, and `cd` into it:
@@ -15,9 +15,9 @@ Make a new directory, and `cd` into it:
 mkdir my-new-project && cd $_
 ```
 
-Run `yo angular`, optionally passing an app name:
+Run `yo volusion-angular`, optionally passing an app name:
 ```
-yo angular [app-name]
+yo volusion-angular [app-name]
 ```
 
 Run `grunt` for building and `grunt serve` for preview
@@ -27,27 +27,27 @@ Run `grunt` for building and `grunt serve` for preview
 
 Available generators:
 
-* [angular](#app) (aka [angular:app](#app))
-* [angular:controller](#controller)
-* [angular:directive](#directive)
-* [angular:filter](#filter)
-* [angular:route](#route)
-* [angular:service](#service)
-* [angular:provider](#service)
-* [angular:factory](#service)
-* [angular:value](#service)
-* [angular:constant](#service)
-* [angular:decorator] (#decorator)
-* [angular:view](#view)
+* [volusion-angular](#app) (aka [volusion-angular:app](#app))
+* [volusion-angular:controller](#controller)
+* [volusion-angular:directive](#directive)
+* [volusion-angular:filter](#filter)
+* [volusion-angular:route](#route)
+* [volusion-angular:service](#service)
+* [volusion-angular:provider](#service)
+* [volusion-angular:factory](#service)
+* [volusion-angular:value](#service)
+* [volusion-angular:constant](#service)
+* [volusion-angular:decorator] (#decorator)
+* [volusion-angular:view](#view)
 
 **Note: Generators are to be run from the root directory of your app.**
 
 ### App
-Sets up a new AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Twitter Bootstrap and additional AngularJS modules, such as angular-resource (installed by default).
+Sets up a new Volusion-AngularJS app, generating all the boilerplate you need to get started. The app generator also optionally installs Twitter Bootstrap and additional AngularJS modules, such as angular-resource (installed by default).
 
 Example:
 ```bash
-yo angular
+yo volusion-angular
 ```
 
 ### Route
@@ -55,7 +55,7 @@ Generates a controller and view, and configures a route in `app/scripts/app.js` 
 
 Example:
 ```bash
-yo angular:route myroute
+yo volusion-angular:route myroute
 ```
 
 Produces `app/scripts/controllers/myroute.js`:
@@ -75,7 +75,7 @@ Generates a controller in `app/scripts/controllers`.
 
 Example:
 ```bash
-yo angular:controller user
+yo volusion-angular:controller user
 ```
 
 Produces `app/scripts/controllers/user.js`:
@@ -89,7 +89,7 @@ Generates a directive in `app/scripts/directives`.
 
 Example:
 ```bash
-yo angular:directive myDirective
+yo volusion-angular:directive myDirective
 ```
 
 Produces `app/scripts/directives/myDirective.js`:
@@ -110,7 +110,7 @@ Generates a filter in `app/scripts/filters`.
 
 Example:
 ```bash
-yo angular:filter myFilter
+yo volusion-angular:filter myFilter
 ```
 
 Produces `app/scripts/filters/myFilter.js`:
@@ -127,7 +127,7 @@ Generates an HTML view file in `app/views`.
 
 Example:
 ```bash
-yo angular:view user
+yo volusion-angular:view user
 ```
 
 Produces `app/views/user.html`:
@@ -140,7 +140,7 @@ Generates an AngularJS service.
 
 Example:
 ```bash
-yo angular:service myService
+yo volusion-angular:service myService
 ```
 
 Produces `app/scripts/services/myService.js`:
@@ -150,14 +150,14 @@ angular.module('myMod').service('myService', function () {
 });
 ```
 
-You can also do `yo angular:factory`, `yo angular:provider`, `yo angular:value`, and `yo angular:constant` for other types of services.
+You can also do `yo volusion-angular:factory`, `yo volusion-angular:provider`, `yo volusion-angular:value`, and `yo volusion-angular:constant` for other types of services.
 
 ### Decorator
 Generates an AngularJS service decorator.
 
 Example:
 ```bash
-yo angular:decorator serviceName
+yo volusion-angular:decorator serviceName
 ```
 
 Produces `app/scripts/decorators/serviceNameDecorator.js`:
@@ -178,7 +178,7 @@ For generators that output scripts, the `--coffee` option will output CoffeeScri
 
 For example:
 ```bash
-yo angular:controller user --coffee
+yo volusion-angular:controller user --coffee
 ```
 
 Produces `app/scripts/controller/user.coffee`:
@@ -202,7 +202,7 @@ By default, generators produce unannotated code. Without annotations, AngularJS'
 
 #### Example
 ```bash
-yo angular:controller user --minsafe
+yo volusion-angular:controller user --minsafe
 ```
 
 Produces `app/controller/user.js`:
@@ -259,7 +259,7 @@ By default, new scripts are added to the index.html file. However, this may not 
 
 To skip adding them to the index, pass in the skip-add argument:
 ```bash
-yo angular:service serviceName --skip-add
+yo volusion-angular:service serviceName --skip-add
 ```
 
 ## Bower Components
