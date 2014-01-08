@@ -34,6 +34,14 @@ module.exports = function (grunt) {
       coffeeTest: {
         files: ['test/spec/{,*/}*.{coffee,litcoffee,coffee.md}'],
         tasks: ['newer:coffee:test', 'karma']
+      },<% } else if (typescript) { %>
+      typescript: {
+        files: ['<%%= yeoman.app %>/scripts/{,*/}*.ts'],
+        tasks: ['newer:typescript:dist']
+      },
+      typescriptTest: {
+        files: ['test/spec/{,*/}*.ts'],
+        tasks: ['newer:typescript:test', 'karma']
       },<% } else { %>
       js: {
         files: ['<%%= yeoman.app %>/scripts/{,*/}*.js'],
@@ -64,7 +72,8 @@ module.exports = function (grunt) {
         files: [
           '<%%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',<% if (coffee) { %>
-          '.tmp/scripts/{,*/}*.js',<% } %>
+          '.tmp/scripts/{,*/}*.js',<% } else if (typescript) { %>
+          '.tmp/scripts/{,*/}*.ts',<% } %>
           '<%%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -111,9 +120,9 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: [
-        'Gruntfile.js'<% if (!coffee) { %>,
+        'Gruntfile.js'<% if (!coffee && !typescript) { %>,
         '<%%= yeoman.app %>/scripts/{,*/}*.js'<% } %>
-      ]<% if (!coffee) { %>,
+      ]<% if (!coffee && !typescript) { %>,
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
@@ -181,6 +190,35 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'test/spec',
           src: '{,*/}*.coffee',
+          dest: '.tmp/spec',
+          ext: '.js'
+        }]
+      }
+    },<% } %>
+
+<% if (typescript) { %>
+    // Compiles TypeScript to JavaScript
+    typescript: {
+      options: {
+        sourcemap: true,
+        sourceRoot: '',
+        module: 'commonjs',
+        target: 'ES5'
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%%= yeoman.app %>/scripts',
+          src: '{,*/}*.ts',
+          dest: '.tmp/scripts',
+          ext: '.js'
+        }]
+      },
+      test: {
+        files: [{
+          expand: true,
+          cwd: 'test/spec',
+          src: '{,*/}*.ts',
           dest: '.tmp/spec',
           ext: '.js'
         }]
@@ -343,17 +381,20 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [<% if (coffee) { %>
-        'coffee:dist',<% } %><% if (compass) { %>
+        'coffee:dist',<% } else if (typescript) { %>
+        'typescript:dist',<% } %><% if (compass) { %>
         'compass:server'<% } else { %>
         'copy:styles'<% } %>
       ],
       test: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compass) { %>
+        'coffee',<% } else if (typescript) { %>
+        'typescript',<% } %><% if (compass) { %>
         'compass'<% } else { %>
         'copy:styles'<% } %>
       ],
       dist: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compass) { %>
+        'coffee',<% } else if (typescript) { %>
+        'typescript',<% } %><% if (compass) { %>
         'compass:dist',<% } else { %>
         'copy:styles',<% } %>
         'imagemin',

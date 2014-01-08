@@ -191,6 +191,24 @@ A project can mix CoffeScript and JavaScript files.
 
 To output JavaScript files, even if CoffeeScript files exist (the default is to output CoffeeScript files if the generator finds any in the project), use `--coffee=false`.
 
+### TypeScript
+For generators that output scripts, the `--typescript` option will output CoffeeScript instead of JavaScript.
+
+For example:
+```bash
+yo volusion-angular:controller user --typescript
+```
+
+Produces `app/scripts/controller/user.ts`:
+```ts
+angular.module('myMod')
+  .controller('UserCtrl', ($scope: ng.IScope) => {});
+```
+
+A project can mix TypeScript and JavaScript files.
+
+To output JavaScript files, even if TypeScript files exist (the default is to output TypeScript files if the generator finds any in the project), use `--typescript=false`.
+
 ### Minification Safe
 
 **Deprecated**
