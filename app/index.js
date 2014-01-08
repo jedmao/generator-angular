@@ -55,15 +55,15 @@ var Generator = module.exports = function Generator(args, options) {
     args.push('--minsafe');
   }
 
-  this.hookFor('angular:common', {
+  this.hookFor('volusion-angular:common', {
     args: args
   });
 
-  this.hookFor('angular:main', {
+  this.hookFor('volusion-angular:main', {
     args: args
   });
 
-  this.hookFor('angular:controller', {
+  this.hookFor('volusion-angular:controller', {
     args: args
   });
 

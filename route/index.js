@@ -7,8 +7,8 @@ var angularUtils = require('../util.js');
 
 var Generator = module.exports = function Generator() {
   ScriptBase.apply(this, arguments);
-  this.hookFor('angular:controller');
-  this.hookFor('angular:view');
+  this.hookFor('volusion-angular:controller');
+  this.hookFor('volusion-angular:view');
 };
 
 util.inherits(Generator, ScriptBase);
